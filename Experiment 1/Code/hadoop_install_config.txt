@@ -1,0 +1,32 @@
+# For core-site.xml
+<property>
+  <name>fs.defaultFS</name>
+  <value>hdfs://localhost:9000</value>
+</property>
+
+# For hdfs-site.xml or httpfs-site.xml
+<property>
+  <name>dfs.replication</name>
+  <value>1</value>
+</property><property>
+  <name>dfs.namenode.name.dir</name>
+  <value>C:\hadoop\data\namenode</value>
+</property><property>
+  <name>dfs.datanode.data.dir</name>
+  <value>C:\hadoop\data\datanode</value>
+</property>
+
+# For mapred-site.xml
+<property>
+  <name>mapreduce.framework.name</name>
+  <value>yarn</value>
+</property>
+
+# For yarn-site.xml
+<property>
+  <name>yarn.nodemanager.aux-services</name>
+  <value>mapreduce_shuffle</value>
+</property><property>
+  <name>yarn.nodemanager.auxservices.mapreduce.shuffle.class</name>
+  <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+</property>
