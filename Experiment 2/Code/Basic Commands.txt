@@ -1,0 +1,124 @@
+==============================
+BIG DATA ANALYTICS LAB (IT-513)
+HADOOP BASIC COMMANDS
+Contributor: Priyanshu Baghel
+Mentor: Dr. Abhishek Narwaria, Assistant Professor
+==============================
+
+
+1️⃣  HDFS FILE MANAGEMENT COMMANDS
+---------------------------------
+# List directories and files
+hadoop fs -ls /
+hadoop fs -ls /input
+
+# Create directory
+hadoop fs -mkdir /input
+hadoop fs -mkdir /output
+
+# Upload file to HDFS
+hadoop fs -put input.txt /input
+hadoop fs -copyFromLocal data.txt /input
+
+# Download file from HDFS
+hadoop fs -get /output/result.txt D:\BDA_Lab
+hadoop fs -copyToLocal /output/result.txt D:\BDA_Lab
+
+# Display file content
+hadoop fs -cat /input/input.txt
+hadoop fs -text /output/result.seq
+
+# Move or rename file
+hadoop fs -mv /input/data.txt /archive/data.txt
+
+# Copy files within HDFS
+hadoop fs -cp /input/data.txt /backup/data.txt
+
+# Delete files or directories
+hadoop fs -rm /input/input.txt
+hadoop fs -rm -r /output
+
+# Check file space usage
+hadoop fs -du /input
+hadoop fs -du -h /input
+
+# Count directories, files, and bytes
+hadoop fs -count /input
+
+# View last 1KB of file
+hadoop fs -tail /logs/app.log
+
+# Change permissions
+hadoop fs -chmod 755 /input
+
+# Change file owner
+hadoop fs -chown hadoopuser:hadoop /input
+
+# Test if file or directory exists
+hadoop fs -test -e /input/data.txt
+
+
+
+2️⃣  CLUSTER SETUP & MANAGEMENT COMMANDS
+----------------------------------------
+# Start Hadoop services (Windows)
+start-dfs.cmd
+start-yarn.cmd
+
+# Stop Hadoop services
+stop-dfs.cmd
+stop-yarn.cmd
+
+# Check running daemons
+jps
+
+# Format NameNode (only once during first setup)
+hdfs namenode -format
+
+# Display cluster report
+hdfs dfsadmin -report
+
+# Check safemode status
+hdfs dfsadmin -safemode get
+
+# Enter or leave safemode
+hdfs dfsadmin -safemode enter
+hdfs dfsadmin -safemode leave
+
+# Check filesystem health
+hdfs fsck /
+hdfs dfs -du -h /
+
+
+
+3️⃣  MAPREDUCE JOB COMMANDS
+---------------------------
+# Run a MapReduce job
+hadoop jar <jar_file> <main_class> <input> <output>
+# Example:
+hadoop jar wordcount.jar WordCount /input /output
+
+# Run using YARN resource manager
+yarn jar hadoop-mapreduce-examples.jar wordcount /input /output
+
+# List all running jobs
+mapred job -list
+
+# Check status of a job
+mapred job -status <job_id>
+
+# Kill a running job
+mapred job -kill <job_id>
+
+# List available job queues
+mapred queue -list
+
+
+
+4️⃣  BENCHMARKING & STRESS TEST COMMANDS
+----------------------------------------
+# Generate test data
+hadoop jar $HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.6.jar teragen 10000 /Test
+
+# Sort generated data
+hadoop jar $HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapre_
