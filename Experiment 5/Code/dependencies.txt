@@ -1,0 +1,16 @@
+In the project’s `pom.xml`, add the following dependencies:
+
+In xml -
+
+<dependencies>
+  <dependency>
+    <groupId>org.apache.hadoop</groupId>
+    <artifactId>hadoop-common</artifactId>
+    <version>3.3.3</version>
+  </dependency>
+  <dependency>
+    <groupId>org.apache.hadoop</groupId>
+    <artifactId>hadoop-mapreduce-client-core</artifactId>
+    <version>3.3.3</version>
+  </dependency>
+</dependencies>
