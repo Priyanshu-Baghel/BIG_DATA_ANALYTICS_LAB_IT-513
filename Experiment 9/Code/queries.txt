@@ -1,0 +1,109 @@
+=========================================
+BIG DATA ANALYTICS LAB (IT-513)
+LAB 9 – HIVE QUERIES
+Contributor: Priyanshu Baghel
+Mentor: Dr. Abhishek Narwaria, Assistant Professor
+=========================================
+
+
+--- HIVE SETUP COMMANDS (REFERENCE) ---
+
+# Initialize Derby metastore
+schematool -initSchema -dbType derby
+
+# Start Hive shell
+hive
+
+
+
+=========================================
+HIVE DATABASE QUERIES
+=========================================
+
+-- Create a database
+CREATE DATABASE sample_db;
+
+-- Use the database
+USE sample_db;
+
+-- Drop a database (with CASCADE to remove all objects)
+DROP DATABASE sample_db CASCADE;
+
+
+
+=========================================
+HIVE TABLE QUERIES
+=========================================
+
+-- Create a table
+CREATE TABLE employee (
+    id INT,
+    name STRING,
+    age INT,
+    salary FLOAT
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ',';
+
+-- Insert records into table
+INSERT INTO TABLE employee VALUES
+(1, 'John Doe', 30, 50000),
+(2, 'Jane Smith', 25, 60000);
+
+-- Add a new column
+ALTER TABLE employee ADD COLUMNS (department STRING);
+
+-- Rename table
+ALTER TABLE employee RENAME TO staff;
+
+-- Drop the table
+DROP TABLE staff;
+
+
+
+=========================================
+HIVE VIEW QUERIES
+=========================================
+
+-- Create a view
+CREATE VIEW senior_employees AS
+SELECT name, age FROM staff WHERE age > 28;
+
+-- Drop the view
+DROP VIEW senior_employees;
+
+
+
+=========================================
+HIVE FUNCTION (UDF) QUERIES
+=========================================
+
+-- Add external JAR file
+ADD JAR /path/to/custom-udf.jar;
+
+-- Create a custom UDF
+CREATE FUNCTION to_upper AS 'com.example.udf.ToUpper';
+
+-- Drop the custom function
+DROP FUNCTION to_upper;
+
+
+
+=========================================
+HIVE INDEX QUERIES
+=========================================
+
+-- Create index on salary column
+CREATE INDEX idx_salary
+ON TABLE staff (salary)
+AS 'COMPACT'
+WITH DEFERRED REBUILD;
+
+-- Drop the index
+DROP INDEX idx_salary ON staff;
+
+
+
+=========================================
+END OF FILE
+=========================================
