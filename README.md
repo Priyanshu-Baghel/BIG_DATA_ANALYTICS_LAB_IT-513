@@ -222,3 +222,8 @@ It is designed as a full reference for IT-513 students, enabling them to underst
 
 ---
 
+# Special Thanks
+
+A special thanks to our senior **Faizan Sir & Udesh Sir**, whose continuous guidance, support, and motivation played an important role in completing this Big Data Analytics Lab work.
+His mentorship helped in understanding complex concepts, troubleshooting issues, and maintaining consistency throughout all 12 experiments.
+
