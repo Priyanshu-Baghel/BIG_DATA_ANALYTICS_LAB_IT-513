@@ -1,6 +1,7 @@
 # BIG DATA ANALYTICS LAB (IT-513)
 
 **Contributor:** *Priyanshu Baghel*
+
 **Mentor:** *Dr. Abhishek Narwaria, Assistant Professor*
 
 This repository contains **all 12 experiments** for the **Big Data Analytics Laboratory (IT-513)**.
